@@ -1,13 +1,19 @@
 
+import { Suspense } from 'react'
 import './App.css'
 import Countries from './components/countries/countries'
+
+const countriesPromies =fetch('https://openapi.programming-hero.com/api/all')
+.then (res => res.json())
 
 function App() {
   return (
     <>
       <div className='cart'>
         <h3 >recact project</h3>
-        <Countries ></Countries>
+       <Suspense fallback ={<p>nadir on the gooooo</p>}>
+        <Countries countriesPromies={countriesPromies}></Countries>
+       </Suspense>
       </div>
 
     </>
