@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './countries/country.css'
 const Country = ({country}) => {
-    console.log(country)
+    // console.log(country)
+    const [visited ,setvisited]  =useState(false)
 
     const handelVisited = () =>{
-        console.log('i visit ')
+          if(visited){
+            setvisited(false)
+          }
+          else{
+            setvisited(true)
+          }
     }
    
     return (
-        <div className='country' >
+        <div className={`country  ${visited  && 'country-visited'} `} >
      
              <img src={country.flags.flags.png} alt="country.flags.flags.alt" />
             <h2>name:{country.name.common}</h2>
@@ -16,7 +22,7 @@ const Country = ({country}) => {
             <p>Continent:{country.region.region}</p>
             <p>Area: {country.area.area}{country.area.area > 20000 ? "big country"  : "small country"}</p> 
 
-            <button onClick={handelVisited} >Not visited</button>
+            <button onClick={handelVisited} >{visited ? "visired" : "not visited"} </button>
         </div>
     );
 };
