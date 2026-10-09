@@ -2,4 +2,10 @@
     display: grid;
     grid-template-columns:  repeat(3,1fr) ;
     gap: 20px;
-}
+} 
+ .visitedFlags {
+    width: 200px; 
+    grid-column: 3,1fr;
+    border-radius: 20px;
+    background: #dd1c1c;
+ }
